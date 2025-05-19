@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 public class Server implements ActionListener {
 
-	public static final int port = 3333;
+	public static final int port = 3913;
 	static ArrayList<ObjectOutputStream> ostreams;
 	Timer timer;
 	private ServerSocket listener; 
@@ -349,7 +349,7 @@ private void initLevel() {
         public void run(){
             while(true){
                 try{
-                    System.out.println((KeyEvent)ois.readObject());
+                    System.out.println((Integer)ois.readObject());
                 }
                 catch (Exception e){
 
@@ -385,8 +385,9 @@ private void initLevel() {
 					handler.oos.writeObject(pacmand_x);
 					handler.oos.writeObject(pacmand_y);
 					handler.oos.writeObject(levelData);
-					handler.oos.writeObject(dying);
 
+
+                    
 
 
 				

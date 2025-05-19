@@ -87,6 +87,8 @@ public class Board extends JPanel implements ActionListener {
 
        public Board(ObjectOutputStream out) {
 
+        screenData = new short[N_BLOCKS*N_BLOCKS];
+
         this.out =out;
         
         initVariables();
@@ -434,7 +436,7 @@ public class Board extends JPanel implements ActionListener {
         public void keyPressed(KeyEvent e) {
 
           try{
-            out.writeObject(e);
+            out.writeObject(e.getKeyCode());
           }
           catch(Exception ex){
 

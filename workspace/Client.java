@@ -40,7 +40,7 @@ public class Client {
         pacman.setVisible(true);
        
         try { 
-            socket = new Socket(InetAddress.getLocalHost().getHostName(), 3333);
+            socket = new Socket(InetAddress.getLocalHost().getHostName(), 3913);
 
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
@@ -70,6 +70,7 @@ public class Client {
                 theBoard.pacmand_y = (int[])(in.readObject());
                 
                 
+                
                 theBoard.levelData = (short[])(in.readObject());
                 pacman.repaint();
 
@@ -78,9 +79,10 @@ public class Client {
 
 
 
-        } catch(Exception exp) {
-            System.out.println(exp.getStackTrace());
-        }
+        } catch(ClassNotFoundException ex) {
+            System.out.println(ex.getStackTrace());
+        } catch(IOException exp){}
+
     }
     
     
